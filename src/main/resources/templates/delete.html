@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete Account</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1>Account Management</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a th:href="@{/accounts}">All Accounts</a></li>
+                <li><a th:href="@{/accounts/add}">Add Account</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <h1>Delete Account</h1>
+    <p>Are you sure you want to delete the account with name <strong th:text="${account.accountHolderName}"></strong>?</p>
+    <form th:action="@{/accounts/{id}/delete(id=${account.id})}" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Yes, delete</button>
+    </form>
+    <a th:href="@{/accounts}">No, go back</a>
+</div>
+</body>
+</html>

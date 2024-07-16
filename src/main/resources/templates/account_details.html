@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        header h1 {
+            margin: 0;
+            padding-left: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #444;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        p strong {
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1>Account Management</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a th:href="@{/accounts}">All Accounts</a></li>
+                <li><a th:href="@{/accounts/add}">Add Account</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <h1>Account Details</h1>
+    <p><strong>Account ID:</strong> <span th:text="${account.id}"></span></p>
+    <p><strong>Account Name:</strong> <span th:text="${account.accountHolderName}"></span></p>
+    <p><strong>Balance:</strong> <span th:text="${account.balance}"></span></p>
+    <a th:href="@{/accounts}">Back to All Accounts</a>
+</div>
+</body>
+</html>
